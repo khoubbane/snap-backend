@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -101,6 +101,12 @@
             min-height: 100vh;
         }
         .glass-panel {
+            background: rgba(9, 11, 16, 0.7);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .glass-box {
             background: rgba(255, 255, 255, 0.03);
             backdrop-filter: blur(16px);
             -webkit-backdrop-filter: blur(16px);
@@ -116,28 +122,38 @@
         .faq-active .faq-icon { transform: rotate(180deg); }
     </style>
 </head>
-<body class="antialiased flex flex-col items-center pt-8 px-4 pb-20">
+<body class="antialiased flex flex-col items-center pt-24 px-4 pb-20">
 
-    <!-- Header -->
-    <header class="w-full max-w-5xl flex justify-between items-center mb-12 glass-panel px-6 py-4 rounded-2xl">
-        <div class="flex items-center gap-2">
-            <i data-lucide="ghost" class="snap-yellow w-8 h-8"></i>
-            <span class="text-xl font-bold tracking-tight">SnapSave</span>
-        </div>
-        
-        <!-- Language Switcher -->
-        <div class="flex gap-2 bg-gray-900/50 p-1.5 rounded-xl border border-gray-700">
-            <button onclick="changeLanguage('en')" id="btn-lang-en" class="px-3 py-1.5 rounded-lg bg-gray-700 text-sm flex items-center gap-2 transition-all text-white">
-                <span class="text-lg">🇺🇸</span> EN
-            </button>
-            <button onclick="changeLanguage('fr')" id="btn-lang-fr" class="px-3 py-1.5 rounded-lg hover:bg-gray-800 text-sm flex items-center gap-2 transition-all text-gray-400">
-                <span class="text-lg">🇫🇷</span> FR
-            </button>
-        </div>
-    </header>
+    <!-- Top Sticky Navbar -->
+    <nav class="w-full fixed top-0 left-0 z-50 glass-panel px-4 py-3">
+        <div class="max-w-6xl mx-auto flex justify-between items-center">
+            <!-- Logo -->
+            <a href="#" class="flex items-center gap-2">
+                <i data-lucide="ghost" class="snap-yellow w-8 h-8"></i>
+                <span class="text-xl font-bold tracking-tight text-white">SnapSave</span>
+            </a>
+            
+            <!-- Navbar Links (Hidden on very small screens) -->
+            <div class="hidden md:flex items-center gap-8">
+                <a href="#features" id="navFeatures" class="text-sm font-medium text-gray-300 hover:text-white transition">Features</a>
+                <a href="#how-to" id="navHowTo" class="text-sm font-medium text-gray-300 hover:text-white transition">How to Use</a>
+                <a href="#faq" id="navFaq" class="text-sm font-medium text-gray-300 hover:text-white transition">FAQ</a>
+            </div>
 
-    <!-- Main Section -->
-    <main class="w-full max-w-3xl flex flex-col items-center text-center mb-20">
+            <!-- Language Switcher -->
+            <div class="flex gap-2 bg-gray-900/50 p-1.5 rounded-xl border border-gray-700">
+                <button onclick="changeLanguage('en')" id="btn-lang-en" class="px-3 py-1.5 rounded-lg bg-gray-700 text-sm flex items-center gap-2 transition-all text-white">
+                    <span class="text-lg">🇺🇸</span> EN
+                </button>
+                <button onclick="changeLanguage('fr')" id="btn-lang-fr" class="px-3 py-1.5 rounded-lg hover:bg-gray-800 text-sm flex items-center gap-2 transition-all text-gray-400">
+                    <span class="text-lg">🇫🇷</span> FR
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Hero Section -->
+    <main class="w-full max-w-3xl flex flex-col items-center text-center mb-20 mt-10">
         
         <h1 id="heroTitle" class="text-4xl md:text-5xl font-bold mb-4">
             Download <span class="snap-yellow">Snapchat</span> Media
@@ -147,7 +163,7 @@
         </p>
 
         <!-- Input Form -->
-        <div class="glass-panel w-full p-2 rounded-2xl flex flex-col sm:flex-row gap-2 mb-6">
+        <div class="glass-box w-full p-2 rounded-2xl flex flex-col sm:flex-row gap-2 mb-6">
             <div class="relative flex-grow flex items-center">
                 <i data-lucide="link" class="absolute left-4 text-gray-400 w-5 h-5"></i>
                 <input type="text" id="snapUrlInput" 
@@ -172,7 +188,7 @@
         </div>
 
         <!-- Result Preview Card -->
-        <div id="resultCard" class="hidden w-full glass-panel p-6 rounded-2xl flex flex-col md:flex-row gap-6 items-center text-left animate-fade-in mt-4">
+        <div id="resultCard" class="hidden w-full glass-box p-6 rounded-2xl flex flex-col md:flex-row gap-6 items-center text-left animate-fade-in mt-4">
             
             <div class="w-32 h-48 rounded-xl bg-gray-800 flex-shrink-0 flex items-center justify-center overflow-hidden border border-gray-700 relative">
                 <i data-lucide="video" class="w-12 h-12 text-gray-500 absolute z-0" id="thumbnailIcon"></i>
@@ -189,7 +205,7 @@
                         <i data-lucide="download" class="w-5 h-5"></i> 
                         <span id="dlVideoText">Download MP4 (Video)</span>
                     </button>
-                    <button onclick="forceDownload(document.getElementById('videoUrlData').value, 'mp3')" id="downloadMp3Btn" class="w-full glass-panel border-gray-600 text-white font-semibold py-3 px-4 rounded-xl flex items-center justify-center gap-2 hover:bg-gray-800 transition">
+                    <button onclick="forceDownload(document.getElementById('videoUrlData').value, 'mp3')" id="downloadMp3Btn" class="w-full glass-box border-gray-600 text-white font-semibold py-3 px-4 rounded-xl flex items-center justify-center gap-2 hover:bg-gray-800 transition">
                         <i data-lucide="music" class="w-5 h-5"></i> 
                         <span id="dlAudioText">Download MP3 (Audio)</span>
                     </button>
@@ -201,81 +217,87 @@
 
     <div class="w-full max-w-5xl border-t border-gray-800 pt-16">
         
-        <!-- Features -->
-        <h2 id="featMainTitle" class="text-2xl font-bold text-center mb-8">Premium Features</h2>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-20">
-            <div class="glass-panel p-6 rounded-2xl text-center">
-                <i data-lucide="zap" class="w-10 h-10 snap-yellow mx-auto mb-4"></i>
-                <h3 class="font-bold text-lg mb-2" id="feat1Title">Lightning Fast</h3>
-                <p class="text-gray-400 text-sm" id="feat1Desc">Serverless architecture fetches your media instantly.</p>
+        <!-- Features Section -->
+        <section id="features" class="mb-20 scroll-mt-24">
+            <h2 id="featMainTitle" class="text-2xl font-bold text-center mb-8">Premium Features</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="glass-box p-6 rounded-2xl text-center">
+                    <i data-lucide="zap" class="w-10 h-10 snap-yellow mx-auto mb-4"></i>
+                    <h3 class="font-bold text-lg mb-2" id="feat1Title">Lightning Fast</h3>
+                    <p class="text-gray-400 text-sm" id="feat1Desc">Serverless architecture fetches your media instantly.</p>
+                </div>
+                <div class="glass-box p-6 rounded-2xl text-center">
+                    <i data-lucide="shield-check" class="w-10 h-10 snap-yellow mx-auto mb-4"></i>
+                    <h3 class="font-bold text-lg mb-2" id="feat2Title">Direct Download</h3>
+                    <p class="text-gray-400 text-sm" id="feat2Desc">Files save directly to your gallery without opening spam tabs.</p>
+                </div>
+                <div class="glass-box p-6 rounded-2xl text-center">
+                    <i data-lucide="file-audio" class="w-10 h-10 snap-yellow mx-auto mb-4"></i>
+                    <h3 class="font-bold text-lg mb-2" id="feat3Title">All Formats</h3>
+                    <p class="text-gray-400 text-sm" id="feat3Desc">Supports Spotlight, Stories, Map Videos, and Audio extraction.</p>
+                </div>
             </div>
-            <div class="glass-panel p-6 rounded-2xl text-center">
-                <i data-lucide="shield-check" class="w-10 h-10 snap-yellow mx-auto mb-4"></i>
-                <h3 class="font-bold text-lg mb-2" id="feat2Title">Direct Download</h3>
-                <p class="text-gray-400 text-sm" id="feat2Desc">Files save directly to your gallery without opening spam tabs.</p>
-            </div>
-            <div class="glass-panel p-6 rounded-2xl text-center">
-                <i data-lucide="file-audio" class="w-10 h-10 snap-yellow mx-auto mb-4"></i>
-                <h3 class="font-bold text-lg mb-2" id="feat3Title">All Formats</h3>
-                <p class="text-gray-400 text-sm" id="feat3Desc">Supports Spotlight, Stories, Map Videos, and Audio extraction.</p>
-            </div>
-        </div>
+        </section>
 
-        <!-- How To Use -->
-        <h2 id="stepsTitle" class="text-2xl font-bold text-center mb-8">How to use?</h2>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-20">
-            <div class="glass-panel p-6 rounded-2xl text-center relative overflow-hidden">
-                <div class="absolute -top-4 -right-4 text-6xl font-bold text-gray-800 opacity-30">1</div>
-                <h3 class="font-bold text-lg mb-2 relative z-10" id="step1Title">Copy Link</h3>
-                <p class="text-gray-400 text-sm relative z-10" id="step1Desc">Find the Snapchat video and copy its sharing link.</p>
+        <!-- How To Use Section -->
+        <section id="how-to" class="mb-20 scroll-mt-24">
+            <h2 id="stepsTitle" class="text-2xl font-bold text-center mb-8">How to use?</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="glass-box p-6 rounded-2xl text-center relative overflow-hidden">
+                    <div class="absolute -top-4 -right-4 text-6xl font-bold text-gray-800 opacity-30">1</div>
+                    <h3 class="font-bold text-lg mb-2 relative z-10" id="step1Title">Copy Link</h3>
+                    <p class="text-gray-400 text-sm relative z-10" id="step1Desc">Find the Snapchat video and copy its sharing link.</p>
+                </div>
+                <div class="glass-box p-6 rounded-2xl text-center relative overflow-hidden">
+                    <div class="absolute -top-4 -right-4 text-6xl font-bold text-gray-800 opacity-30">2</div>
+                    <h3 class="font-bold text-lg mb-2 relative z-10" id="step2Title">Paste URL</h3>
+                    <p class="text-gray-400 text-sm relative z-10" id="step2Desc">Click the 'Paste' button and hit 'Extract'.</p>
+                </div>
+                <div class="glass-box p-6 rounded-2xl text-center relative overflow-hidden">
+                    <div class="absolute -top-4 -right-4 text-6xl font-bold text-gray-800 opacity-30">3</div>
+                    <h3 class="font-bold text-lg mb-2 relative z-10" id="step3Title">Save</h3>
+                    <p class="text-gray-400 text-sm relative z-10" id="step3Desc">Click Download to save directly to your device.</p>
+                </div>
             </div>
-            <div class="glass-panel p-6 rounded-2xl text-center relative overflow-hidden">
-                <div class="absolute -top-4 -right-4 text-6xl font-bold text-gray-800 opacity-30">2</div>
-                <h3 class="font-bold text-lg mb-2 relative z-10" id="step2Title">Paste URL</h3>
-                <p class="text-gray-400 text-sm relative z-10" id="step2Desc">Click the 'Paste' button and hit 'Extract'.</p>
-            </div>
-            <div class="glass-panel p-6 rounded-2xl text-center relative overflow-hidden">
-                <div class="absolute -top-4 -right-4 text-6xl font-bold text-gray-800 opacity-30">3</div>
-                <h3 class="font-bold text-lg mb-2 relative z-10" id="step3Title">Save</h3>
-                <p class="text-gray-400 text-sm relative z-10" id="step3Desc">Click Download to save directly to your device.</p>
-            </div>
-        </div>
+        </section>
 
-        <!-- FAQ -->
-        <h2 id="faqTitle" class="text-2xl font-bold text-center mb-8">Frequently Asked Questions</h2>
-        <div class="flex flex-col gap-4 max-w-3xl mx-auto mb-20">
-            
-            <div class="glass-panel rounded-2xl cursor-pointer" onclick="this.classList.toggle('faq-active')">
-                <div class="p-5 flex justify-between items-center">
-                    <h4 class="font-semibold" id="faq1Q">Is this tool completely free?</h4>
-                    <i data-lucide="chevron-down" class="w-5 h-5 text-gray-400 transition-transform faq-icon"></i>
+        <!-- FAQ Section -->
+        <section id="faq" class="mb-20 scroll-mt-24">
+            <h2 id="faqTitle" class="text-2xl font-bold text-center mb-8">Frequently Asked Questions</h2>
+            <div class="flex flex-col gap-4 max-w-3xl mx-auto">
+                
+                <div class="glass-box rounded-2xl cursor-pointer" onclick="this.classList.toggle('faq-active')">
+                    <div class="p-5 flex justify-between items-center">
+                        <h4 class="font-semibold" id="faq1Q">Is this tool completely free?</h4>
+                        <i data-lucide="chevron-down" class="w-5 h-5 text-gray-400 transition-transform faq-icon"></i>
+                    </div>
+                    <div class="px-5 pb-5 text-gray-400 text-sm faq-answer" id="faq1A">
+                        Yes, SnapSave is 100% free to use with no download limits or hidden fees.
+                    </div>
                 </div>
-                <div class="px-5 pb-5 text-gray-400 text-sm faq-answer" id="faq1A">
-                    Yes, SnapSave is 100% free to use with no download limits or hidden fees.
-                </div>
-            </div>
 
-            <div class="glass-panel rounded-2xl cursor-pointer" onclick="this.classList.toggle('faq-active')">
-                <div class="p-5 flex justify-between items-center">
-                    <h4 class="font-semibold" id="faq2Q">Can I download Private Stories?</h4>
-                    <i data-lucide="chevron-down" class="w-5 h-5 text-gray-400 transition-transform faq-icon"></i>
+                <div class="glass-box rounded-2xl cursor-pointer" onclick="this.classList.toggle('faq-active')">
+                    <div class="p-5 flex justify-between items-center">
+                        <h4 class="font-semibold" id="faq2Q">Can I download Private Stories?</h4>
+                        <i data-lucide="chevron-down" class="w-5 h-5 text-gray-400 transition-transform faq-icon"></i>
+                    </div>
+                    <div class="px-5 pb-5 text-gray-400 text-sm faq-answer" id="faq2A">
+                        No. To respect user privacy, we only support public Spotlights and Public Stories.
+                    </div>
                 </div>
-                <div class="px-5 pb-5 text-gray-400 text-sm faq-answer" id="faq2A">
-                    No. To respect user privacy, we only support public Spotlights and Public Stories.
-                </div>
-            </div>
 
-            <div class="glass-panel rounded-2xl cursor-pointer" onclick="this.classList.toggle('faq-active')">
-                <div class="p-5 flex justify-between items-center">
-                    <h4 class="font-semibold" id="faq3Q">Where are videos saved?</h4>
-                    <i data-lucide="chevron-down" class="w-5 h-5 text-gray-400 transition-transform faq-icon"></i>
+                <div class="glass-box rounded-2xl cursor-pointer" onclick="this.classList.toggle('faq-active')">
+                    <div class="p-5 flex justify-between items-center">
+                        <h4 class="font-semibold" id="faq3Q">Where are videos saved?</h4>
+                        <i data-lucide="chevron-down" class="w-5 h-5 text-gray-400 transition-transform faq-icon"></i>
+                    </div>
+                    <div class="px-5 pb-5 text-gray-400 text-sm faq-answer" id="faq3A">
+                        Videos are saved directly to your browser's default "Downloads" folder or your phone's gallery.
+                    </div>
                 </div>
-                <div class="px-5 pb-5 text-gray-400 text-sm faq-answer" id="faq3A">
-                    Videos are saved directly to your browser's default "Downloads" folder or your phone's gallery.
-                </div>
-            </div>
 
-        </div>
+            </div>
+        </section>
     </div>
 
     <!-- Scripts -->
@@ -284,6 +306,7 @@
 
         const translations = {
             en: {
+                navF: 'Features', navH: 'How to Use', navQ: 'FAQ',
                 title: 'Download <span class="snap-yellow">Snapchat</span> Media',
                 sub: 'Download Spotlight, Stories, and Reels directly to your device.',
                 placeholder: 'Paste Snapchat link here...',
@@ -307,6 +330,7 @@
                 errExtract: 'Error extracting. Make sure the link is public.'
             },
             fr: {
+                navF: 'Fonctionnalités', navH: 'Comment utiliser', navQ: 'FAQ',
                 title: 'Télécharger Vidéos <span class="snap-yellow">Snapchat</span>',
                 sub: 'Téléchargez les Spotlight et Stories directement sur votre appareil.',
                 placeholder: 'Collez le lien Snapchat...',
@@ -337,6 +361,7 @@
             currentLang = lang;
             const t = translations[lang];
             
+            // Buttons style
             document.getElementById('btn-lang-en').className = lang === 'en' 
                 ? 'px-3 py-1.5 rounded-lg bg-gray-700 text-sm flex items-center gap-2 transition-all text-white' 
                 : 'px-3 py-1.5 rounded-lg hover:bg-gray-800 text-sm flex items-center gap-2 transition-all text-gray-400';
@@ -345,6 +370,12 @@
                 ? 'px-3 py-1.5 rounded-lg bg-gray-700 text-sm flex items-center gap-2 transition-all text-white' 
                 : 'px-3 py-1.5 rounded-lg hover:bg-gray-800 text-sm flex items-center gap-2 transition-all text-gray-400';
 
+            // Nav links
+            document.getElementById('navFeatures').innerText = t.navF;
+            document.getElementById('navHowTo').innerText = t.navH;
+            document.getElementById('navFaq').innerText = t.navQ;
+
+            // Content
             document.getElementById('heroTitle').innerHTML = t.title;
             document.getElementById('heroSub').innerText = t.sub;
             document.getElementById('snapUrlInput').placeholder = t.placeholder;
