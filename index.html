@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO Meta Tags -->
+    <title>SnapSave - Premium Snapchat Video Downloader</title>
+    <meta name="description" content="Download Snapchat Spotlight and Story videos in high quality. Free, fast, and secure Snapchat media downloader.">
+    <meta name="keywords" content="snapchat downloader, download snapchat video, snapchat story download, spotlight downloader">
+    
+    <!-- OpenGraph / Social Media -->
+    <meta property="og:title" content="SnapSave - Free Snapchat Video Downloader">
+    <meta property="og:description" content="Download any public Snapchat video instantly in HD.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://yoursite.vercel.app">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1611162617474-5b21e879e113?q=80&w=1200&auto=format&fit=crop">
+    
+    <!-- Schema.org for Google Rich Results -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "SnapSave Downloader",
+      "applicationCategory": "MultimediaApplication",
+      "operatingSystem": "All",
+      "offers": {
+        "@type": "Offer",
+        "price": "0"
+      }
+    }
+    </script>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #090b10;
+            background-image: 
+                radial-gradient(at 0% 0%, hsla(58,100%,50%,0.15) 0px, transparent 50%),
+                radial-gradient(at 100% 0%, hsla(253,16%,7%,1) 0px, transparent 50%);
+            color: #ffffff;
+            min-height: 100vh;
+        }
+        /* Glassmorphism Classes */
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        }
+        .snap-yellow { color: #FFFC00; }
+        .bg-snap-yellow { background-color: #FFFC00; color: #000; }
+        .bg-snap-yellow:hover { background-color: #e6e300; }
+    </style>
+</head>
+<body class="antialiased flex flex-col items-center pt-10 px-4">
+
+    <!-- Header / Nav -->
+    <header class="w-full max-w-4xl flex justify-between items-center mb-16 glass-panel px-6 py-4 rounded-2xl">
+        <div class="flex items-center gap-2">
+            <i data-lucide="ghost" class="snap-yellow w-8 h-8"></i>
+            <span class="text-xl font-bold tracking-tight">SnapSave</span>
+        </div>
+        <!-- Language Switcher -->
+        <select id="langSwitcher" onchange="changeLanguage(this.value)" class="bg-transparent border border-gray-600 rounded-lg px-3 py-1 text-sm focus:outline-none focus:border-yellow-400">
+            <option value="en" class="bg-gray-900">English</option>
+            <option value="fr" class="bg-gray-900">Français</option>
+            <option value="ar" class="bg-gray-900">Darija</option>
+        </select>
+    </header>
+
+    <!-- Main Content -->
+    <main class="w-full max-w-3xl flex flex-col items-center text-center">
+        
+        <h1 id="heroTitle" class="text-4xl md:text-6xl font-bold mb-6">
+            Download <span class="snap-yellow">Snapchat</span> Videos
+        </h1>
+        <p id="heroSub" class="text-gray-400 text-lg mb-10 max-w-xl">
+            Save Spotlight and Public Story videos instantly in high quality. No watermark, fully secure.
+        </p>
+
+        <!-- Download Form -->
+        <div class="glass-panel w-full p-2 rounded-2xl flex flex-col sm:flex-row gap-2 mb-8">
+            <div class="relative flex-grow">
+                <i data-lucide="link" class="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5"></i>
+                <input type="text" id="snapUrlInput" 
+                    class="w-full bg-transparent border-none focus:ring-0 text-white placeholder-gray-500 py-4 pl-12 pr-4 h-full text-lg outline-none" 
+                    placeholder="Paste Snapchat link here...">
+            </div>
+            <button onclick="downloadSnapVideo()" id="downloadBtn" 
+                class="bg-snap-yellow font-semibold px-8 py-4 rounded-xl flex items-center justify-center gap-2 transition-all shadow-lg sm:w-auto w-full">
+                <i data-lucide="download" class="w-5 h-5"></i>
+                <span id="btnText">Download</span>
+            </button>
+        </div>
+
+        <!-- Loading State -->
+        <div id="loadingIndicator" class="hidden flex-col items-center gap-4 my-8">
+            <i data-lucide="loader-2" class="w-10 h-10 animate-spin snap-yellow"></i>
+            <p id="loadingText" class="text-gray-400">Extracting video... Please wait.</p>
+        </div>
+
+    </main>
+
+    <!-- SEO & Features Section -->
+    <section class="w-full max-w-4xl mt-20 grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="glass-panel p-6 rounded-2xl text-center">
+            <i data-lucide="zap" class="w-10 h-10 snap-yellow mx-auto mb-4"></i>
+            <h3 class="font-bold text-lg mb-2" id="feat1Title">Lightning Fast</h3>
+            <p class="text-gray-400 text-sm" id="feat1Desc">Our serverless architecture fetches your media in milliseconds.</p>
+        </div>
+        <div class="glass-panel p-6 rounded-2xl text-center">
+            <i data-lucide="shield-check" class="w-10 h-10 snap-yellow mx-auto mb-4"></i>
+            <h3 class="font-bold text-lg mb-2" id="feat2Title">100% Secure</h3>
+            <p class="text-gray-400 text-sm" id="feat2Desc">We do not store your downloaded videos or personal data.</p>
+        </div>
+        <div class="glass-panel p-6 rounded-2xl text-center">
+            <i data-lucide="smartphone" class="w-10 h-10 snap-yellow mx-auto mb-4"></i>
+            <h3 class="font-bold text-lg mb-2" id="feat3Title">Mobile Friendly</h3>
+            <p class="text-gray-400 text-sm" id="feat3Desc">Works perfectly on iOS, Android, and desktop browsers.</p>
+        </div>
+    </section>
+
+    <script>
+        lucide.createIcons();
+    </script>
+
+    <script>
+        const translations = {
+            en: {
+                title: 'Download <span class="snap-yellow">Snapchat</span> Videos',
+                sub: 'Save Spotlight and Public Story videos instantly in high quality. No watermark, fully secure.',
+                placeholder: 'Paste Snapchat link here...',
+                btn: 'Download',
+                loading: 'Extracting video... Please wait.',
+                f1T: 'Lightning Fast', f1D: 'Our serverless architecture fetches your media in milliseconds.',
+                f2T: '100% Secure', f2D: 'We do not store your downloaded videos or personal data.',
+                f3T: 'Mobile Friendly', f3D: 'Works perfectly on iOS, Android, and desktop browsers.',
+                errEmpty: 'Please enter a valid Snapchat link!',
+                errExtract: 'Error extracting video. Make sure the link is public.'
+            },
+            fr: {
+                title: 'Télécharger Vidéos <span class="snap-yellow">Snapchat</span>',
+                sub: 'Sauvegardez les vidéos Spotlight et Story instantanément en haute qualité. Sans filigrane.',
+                placeholder: 'Collez le lien Snapchat ici...',
+                btn: 'Télécharger',
+                loading: 'Extraction de la vidéo en cours...',
+                f1T: 'Ultra Rapide', f1D: 'Notre architecture serverless récupère vos médias en quelques millisecondes.',
+                f2T: '100% Sécurisé', f2D: 'Nous ne stockons aucune vidéo ni donnée personnelle.',
+                f3T: 'Compatible Mobile', f3D: 'Fonctionne parfaitement sur iOS, Android et PC.',
+                errEmpty: 'Veuillez entrer un lien Snapchat valide !',
+                errExtract: 'Erreur d\'extraction. Assurez-vous que le lien est public.'
+            },
+            ar: {
+                title: 'Télecharger les vidéos <span class="snap-yellow">Snapchat</span>',
+                sub: 'Savi les vidéos d Spotlight o les stories b qualité wa3ra. Bla watermark o 100% sécurisé.',
+                placeholder: 'Koli l-lien dyal Snapchat hna...',
+                btn: 'Télécharger',
+                loading: 'Kanjbdo l-vidéo... Tsenna chwiya.',
+                f1T: 'Sari3 bzaf', f1D: 'L-architecture serverless dyalna katjbed l-video f thwaniya.',
+                f2T: 'Sécurisé 100%', f2D: 'Ma kan-khabbiw hta vidéo ola les données dyalk.',
+                f3T: 'Kheddam f Tél', f3D: 'Kheddam mzyan f iPhone, Android, o l-PC.',
+                errEmpty: '3afak dkhl lien dyal Snapchat s7i7!',
+                errExtract: 'Khat2 f l-extraction. T2ked bli l-video public.'
+            }
+        };
+
+        let currentLang = 'en';
+
+        function changeLanguage(lang) {
+            currentLang = lang;
+            const t = translations[lang];
+            
+            document.getElementById('heroTitle').innerHTML = t.title;
+            document.getElementById('heroSub').innerText = t.sub;
+            document.getElementById('snapUrlInput').placeholder = t.placeholder;
+            document.getElementById('btnText').innerText = t.btn;
+            document.getElementById('loadingText').innerText = t.loading;
+            
+            document.getElementById('feat1Title').innerText = t.f1T;
+            document.getElementById('feat1Desc').innerText = t.f1D;
+            document.getElementById('feat2Title').innerText = t.f2T;
+            document.getElementById('feat2Desc').innerText = t.f2D;
+            document.getElementById('feat3Title').innerText = t.f3T;
+            document.getElementById('feat3Desc').innerText = t.f3D;
+        }
+
+        async function downloadSnapVideo() {
+            const urlInput = document.getElementById("snapUrlInput").value.trim();
+            const loadingIndicator = document.getElementById("loadingIndicator");
+            const btn = document.getElementById("downloadBtn");
+            const t = translations[currentLang];
+
+            if (!urlInput) {
+                alert(t.errEmpty);
+                return;
+            }
+
+            loadingIndicator.classList.remove("hidden");
+            loadingIndicator.classList.add("flex");
+            btn.disabled = true;
+            btn.classList.add("opacity-50");
+
+            try {
+                // Route automatique d Vercel l dossier api/
+                const response = await fetch('/api/extract', {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify({ url: urlInput }),
+                });
+
+                const data = await response.json();
+
+                if (!response.ok || data.error) {
+                    throw new Error(data.error || t.errExtract);
+                }
+
+                // Ouverture dyal lien direct
+                window.open(data.download_url, "_blank");
+
+            } catch (error) {
+                console.error(error);
+                alert("Khat2: " + error.message);
+            } finally {
+                loadingIndicator.classList.add("hidden");
+                loadingIndicator.classList.remove("flex");
+                btn.disabled = false;
+                btn.classList.remove("opacity-50");
+            }
+        }
+    </script>
+</body>
+</html>
