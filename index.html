@@ -3,42 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <!-- Primary Meta Tags -->
-    <title>Snapchat Video Downloader - Save Spotlight & Stories | SnapSave</title>
-    <meta name="title" content="Snapchat Video Downloader - Save Spotlight & Stories | SnapSave">
+    <title>Snapchat Video Downloader - Save Spotlight & Stories | SnapGet</title>
+    <meta name="title" content="Snapchat Video Downloader - Save Spotlight & Stories | SnapGet">
     <meta name="description" content="Download Snapchat Spotlight, Stories, and Reels in Full HD (MP4) or Audio (MP3) for free. No watermark, fast, and secure Snapchat media saver.">
-    <meta name="keywords" content="snapchat downloader, download snapchat video, snapchat story saver, download snapchat spotlight, telecharger video snapchat, telecharger story snapchat, snapchat mp4 download, snapchat to mp3, snap save, snapchat video downloader online">
-    <meta name="author" content="SnapSave">
+    <meta name="keywords" content="snapchat downloader, download snapchat video, snapchat story saver, download snapchat spotlight, telecharger video snapchat, telecharger story snapchat, snapchat mp4 download, snapchat to mp3, snap get, snapget online, snapchat video downloader online">
+    <meta name="author" content="SnapGet">
     <meta name="robots" content="index, follow, max-image-preview:large, max-video-preview:-1, max-snippet:-1">
     <meta name="language" content="English">
     <meta name="theme-color" content="#FFFC00">
     
-    <!-- Canonical URL (Beddel 'yoursite.vercel.app' b lien dyalek) -->
-    <link rel="canonical" href="https://yoursite.vercel.app/">
+    <link rel="canonical" href="https://snapget.online/">
 
     <!-- Open Graph / Social Media -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://yoursite.vercel.app/">
+    <meta property="og:url" content="https://snapget.online/">
     <meta property="og:title" content="Snapchat Video Downloader - Save Spotlight & Stories">
     <meta property="og:description" content="Download Snapchat Spotlight, Stories, and Reels in Full HD (MP4) or Audio (MP3) for free.">
     <meta property="og:image" content="https://images.unsplash.com/photo-1611162617474-5b21e879e113?q=80&w=1200&auto=format&fit=crop">
-    <meta property="og:site_name" content="SnapSave">
+    <meta property="og:site_name" content="SnapGet">
 
     <!-- Twitter Cards -->
     <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://yoursite.vercel.app/">
+    <meta property="twitter:url" content="https://snapget.online/">
     <meta property="twitter:title" content="Snapchat Video Downloader - Save Spotlight & Stories">
     <meta property="twitter:description" content="Fastest tool to download Snapchat Spotlight and Stories in MP4 without watermark.">
     <meta property="twitter:image" content="https://images.unsplash.com/photo-1611162617474-5b21e879e113?q=80&w=1200&auto=format&fit=crop">
 
-    <!-- Structured Data: WebApplication -->
+    <!-- Structured Data -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "WebApplication",
-      "name": "SnapSave Video Downloader",
-      "url": "https://yoursite.vercel.app/",
+      "name": "SnapGet Video Downloader",
+      "url": "https://snapget.online/",
       "applicationCategory": "MultimediaApplication",
       "operatingSystem": "All",
       "description": "Free online tool to download Snapchat Spotlight and Stories in MP4 and MP3.",
@@ -55,7 +52,6 @@
     }
     </script>
 
-    <!-- Structured Data: FAQPage -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -65,7 +61,7 @@
         "name": "Is this tool completely free?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Yes, SnapSave is 100% free to use with no download limits or hidden fees."
+          "text": "Yes, SnapGet is 100% free to use with no download limits or hidden fees."
         }
       }, {
         "@type": "Question",
@@ -85,7 +81,6 @@
     }
     </script>
 
-    <!-- Tailwind & Icons -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -100,61 +95,33 @@
             color: #ffffff;
             min-height: 100vh;
         }
-        .glass-panel {
-            background: rgba(9, 11, 16, 0.7);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-        }
-        .glass-box {
-            background: rgba(255, 255, 255, 0.03);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-        }
+        .glass-panel { background: rgba(9, 11, 16, 0.7); backdrop-filter: blur(16px); border-bottom: 1px solid rgba(255, 255, 255, 0.05); }
+        .glass-box { background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(16px); border: 1px solid rgba(255, 255, 255, 0.05); box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1); }
         .snap-yellow { color: #FFFC00; }
         .bg-snap-yellow { background-color: #FFFC00; color: #000; }
         .bg-snap-yellow:hover { background-color: #e6e300; }
-        
-        .faq-answer { display: none; }
-        .faq-active .faq-answer { display: block; }
-        .faq-active .faq-icon { transform: rotate(180deg); }
     </style>
 </head>
 <body class="antialiased flex flex-col items-center pt-24 px-4 pb-20">
 
-    <!-- Top Sticky Navbar -->
     <nav class="w-full fixed top-0 left-0 z-50 glass-panel px-4 py-3">
         <div class="max-w-6xl mx-auto flex justify-between items-center">
-            <!-- Logo -->
             <a href="#" class="flex items-center gap-2">
                 <i data-lucide="ghost" class="snap-yellow w-8 h-8"></i>
-                <span class="text-xl font-bold tracking-tight text-white">SnapSave</span>
+                <span class="text-xl font-bold tracking-tight text-white">SnapGet</span>
             </a>
-            
-            <!-- Navbar Links (Hidden on very small screens) -->
-            <div class="hidden md:flex items-center gap-8">
-                <a href="#features" id="navFeatures" class="text-sm font-medium text-gray-300 hover:text-white transition">Features</a>
-                <a href="#how-to" id="navHowTo" class="text-sm font-medium text-gray-300 hover:text-white transition">How to Use</a>
-                <a href="#faq" id="navFaq" class="text-sm font-medium text-gray-300 hover:text-white transition">FAQ</a>
-            </div>
-
-            <!-- Language Switcher -->
             <div class="flex gap-2 bg-gray-900/50 p-1.5 rounded-xl border border-gray-700">
-                <button onclick="changeLanguage('en')" id="btn-lang-en" class="px-3 py-1.5 rounded-lg bg-gray-700 text-sm flex items-center gap-2 transition-all text-white">
-                    <span class="text-lg">🇺🇸</span> EN
+                <button onclick="changeLanguage('en')" id="btn-lang-en" class="px-3 py-1.5 rounded-lg bg-gray-700 text-sm flex items-center gap-2 text-white">
+                    <span>🇺🇸</span> EN
                 </button>
-                <button onclick="changeLanguage('fr')" id="btn-lang-fr" class="px-3 py-1.5 rounded-lg hover:bg-gray-800 text-sm flex items-center gap-2 transition-all text-gray-400">
-                    <span class="text-lg">🇫🇷</span> FR
+                <button onclick="changeLanguage('fr')" id="btn-lang-fr" class="px-3 py-1.5 rounded-lg hover:bg-gray-800 text-sm flex items-center gap-2 text-gray-400">
+                    <span>🇫🇷</span> FR
                 </button>
             </div>
         </div>
     </nav>
 
-    <!-- Main Hero Section -->
     <main class="w-full max-w-3xl flex flex-col items-center text-center mb-20 mt-10">
-        
         <h1 id="heroTitle" class="text-4xl md:text-5xl font-bold mb-4">
             Download <span class="snap-yellow">Snapchat</span> Media
         </h1>
@@ -162,52 +129,41 @@
             Download Spotlight, Stories, and Reels directly to your device.
         </p>
 
-        <!-- Input Form -->
         <div class="glass-box w-full p-2 rounded-2xl flex flex-col sm:flex-row gap-2 mb-6">
             <div class="relative flex-grow flex items-center">
                 <i data-lucide="link" class="absolute left-4 text-gray-400 w-5 h-5"></i>
-                <input type="text" id="snapUrlInput" 
-                    class="w-full bg-transparent border-none focus:ring-0 text-white placeholder-gray-500 py-4 pl-12 pr-24 h-full text-lg outline-none" 
-                    placeholder="Paste Snapchat link here...">
-                
-                <button onclick="pasteFromClipboard()" id="pasteBtn" class="absolute right-2 bg-gray-800 hover:bg-gray-700 text-white text-sm px-4 py-2 rounded-xl flex items-center gap-2 transition border border-gray-600">
+                <input type="text" id="snapUrlInput" class="w-full bg-transparent border-none text-white placeholder-gray-500 py-4 pl-12 pr-24 h-full text-lg outline-none" placeholder="Paste Snapchat link here...">
+                <button onclick="pasteFromClipboard()" id="pasteBtn" class="absolute right-2 bg-gray-800 hover:bg-gray-700 text-white text-sm px-4 py-2 rounded-xl flex items-center gap-2 border border-gray-600">
                     <i data-lucide="clipboard-paste" class="w-4 h-4"></i> <span id="pasteText">Paste</span>
                 </button>
             </div>
-            <button onclick="downloadSnapVideo()" id="downloadBtn" 
-                class="bg-snap-yellow font-semibold px-8 py-4 rounded-xl flex items-center justify-center gap-2 transition-all shadow-lg sm:w-auto w-full">
-                <i data-lucide="search" class="w-5 h-5"></i>
-                <span id="btnText">Extract</span>
+            <button onclick="downloadSnapVideo()" id="downloadBtn" class="bg-snap-yellow font-semibold px-8 py-4 rounded-xl flex items-center justify-center gap-2 text-black w-full sm:w-auto">
+                <i data-lucide="search" class="w-5 h-5"></i> <span id="btnText">Extract</span>
             </button>
         </div>
 
-        <!-- Loading -->
         <div id="loadingIndicator" class="hidden flex-col items-center gap-4 my-8">
             <i data-lucide="loader-2" class="w-10 h-10 animate-spin snap-yellow"></i>
             <p id="loadingText" class="text-gray-400">Fetching media... Please wait.</p>
         </div>
 
-        <!-- Result Preview Card -->
-        <div id="resultCard" class="hidden w-full glass-box p-6 rounded-2xl flex flex-col md:flex-row gap-6 items-center text-left animate-fade-in mt-4">
-            
+        <div id="resultCard" class="hidden w-full glass-box p-6 rounded-2xl flex flex-col md:flex-row gap-6 items-center text-left mt-4">
             <div class="w-32 h-48 rounded-xl bg-gray-800 flex-shrink-0 flex items-center justify-center overflow-hidden border border-gray-700 relative">
                 <i data-lucide="video" class="w-12 h-12 text-gray-500 absolute z-0" id="thumbnailIcon"></i>
-                <img id="videoThumb" src="" alt="Video Hook" class="hidden w-full h-full object-cover relative z-10">
+                <img id="imageThumb" src="" alt="Thumbnail" class="hidden w-full h-full object-cover relative z-10">
+                <video id="videoThumb" class="hidden w-full h-full object-cover relative z-10" autoplay loop muted playsinline></video>
             </div>
-            
             <div class="flex-grow w-full">
                 <h3 id="videoTitle" class="text-xl font-bold mb-2 text-white line-clamp-2">Snapchat Video</h3>
                 <p class="text-sm text-green-400 mb-6 flex items-center gap-1">
                     <i data-lucide="check-circle-2" class="w-4 h-4"></i> <span id="readyText">Ready to download</span>
                 </p>
                 <div class="flex flex-col gap-3">
-                    <button onclick="forceDownload(document.getElementById('videoUrlData').value, 'mp4')" id="downloadHdBtn" class="w-full bg-snap-yellow text-black font-semibold py-3 px-4 rounded-xl flex items-center justify-center gap-2 hover:bg-yellow-400 transition relative overflow-hidden group">
-                        <i data-lucide="download" class="w-5 h-5"></i> 
-                        <span id="dlVideoText">Download MP4 (Video)</span>
+                    <button onclick="forceDownload(document.getElementById('videoUrlData').value)" id="downloadHdBtn" class="w-full bg-snap-yellow text-black font-semibold py-3 px-4 rounded-xl flex items-center justify-center gap-2 hover:bg-yellow-400">
+                        <i data-lucide="download" class="w-5 h-5"></i> <span id="dlVideoText">Download MP4 (Video)</span>
                     </button>
-                    <button onclick="forceDownload(document.getElementById('videoUrlData').value, 'mp3')" id="downloadMp3Btn" class="w-full glass-box border-gray-600 text-white font-semibold py-3 px-4 rounded-xl flex items-center justify-center gap-2 hover:bg-gray-800 transition">
-                        <i data-lucide="music" class="w-5 h-5"></i> 
-                        <span id="dlAudioText">Download MP3 (Audio)</span>
+                    <button onclick="forceDownload(document.getElementById('videoUrlData').value)" id="downloadMp3Btn" class="w-full glass-box border-gray-600 text-white font-semibold py-3 px-4 rounded-xl flex items-center justify-center gap-2 hover:bg-gray-800">
+                        <i data-lucide="music" class="w-5 h-5"></i> <span id="dlAudioText">Download MP3 (Audio)</span>
                     </button>
                     <input type="hidden" id="videoUrlData" value="">
                 </div>
@@ -215,98 +171,11 @@
         </div>
     </main>
 
-    <div class="w-full max-w-5xl border-t border-gray-800 pt-16">
-        
-        <!-- Features Section -->
-        <section id="features" class="mb-20 scroll-mt-24">
-            <h2 id="featMainTitle" class="text-2xl font-bold text-center mb-8">Premium Features</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <div class="glass-box p-6 rounded-2xl text-center">
-                    <i data-lucide="zap" class="w-10 h-10 snap-yellow mx-auto mb-4"></i>
-                    <h3 class="font-bold text-lg mb-2" id="feat1Title">Lightning Fast</h3>
-                    <p class="text-gray-400 text-sm" id="feat1Desc">Serverless architecture fetches your media instantly.</p>
-                </div>
-                <div class="glass-box p-6 rounded-2xl text-center">
-                    <i data-lucide="shield-check" class="w-10 h-10 snap-yellow mx-auto mb-4"></i>
-                    <h3 class="font-bold text-lg mb-2" id="feat2Title">Direct Download</h3>
-                    <p class="text-gray-400 text-sm" id="feat2Desc">Files save directly to your gallery without opening spam tabs.</p>
-                </div>
-                <div class="glass-box p-6 rounded-2xl text-center">
-                    <i data-lucide="file-audio" class="w-10 h-10 snap-yellow mx-auto mb-4"></i>
-                    <h3 class="font-bold text-lg mb-2" id="feat3Title">All Formats</h3>
-                    <p class="text-gray-400 text-sm" id="feat3Desc">Supports Spotlight, Stories, Map Videos, and Audio extraction.</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- How To Use Section -->
-        <section id="how-to" class="mb-20 scroll-mt-24">
-            <h2 id="stepsTitle" class="text-2xl font-bold text-center mb-8">How to use?</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <div class="glass-box p-6 rounded-2xl text-center relative overflow-hidden">
-                    <div class="absolute -top-4 -right-4 text-6xl font-bold text-gray-800 opacity-30">1</div>
-                    <h3 class="font-bold text-lg mb-2 relative z-10" id="step1Title">Copy Link</h3>
-                    <p class="text-gray-400 text-sm relative z-10" id="step1Desc">Find the Snapchat video and copy its sharing link.</p>
-                </div>
-                <div class="glass-box p-6 rounded-2xl text-center relative overflow-hidden">
-                    <div class="absolute -top-4 -right-4 text-6xl font-bold text-gray-800 opacity-30">2</div>
-                    <h3 class="font-bold text-lg mb-2 relative z-10" id="step2Title">Paste URL</h3>
-                    <p class="text-gray-400 text-sm relative z-10" id="step2Desc">Click the 'Paste' button and hit 'Extract'.</p>
-                </div>
-                <div class="glass-box p-6 rounded-2xl text-center relative overflow-hidden">
-                    <div class="absolute -top-4 -right-4 text-6xl font-bold text-gray-800 opacity-30">3</div>
-                    <h3 class="font-bold text-lg mb-2 relative z-10" id="step3Title">Save</h3>
-                    <p class="text-gray-400 text-sm relative z-10" id="step3Desc">Click Download to save directly to your device.</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- FAQ Section -->
-        <section id="faq" class="mb-20 scroll-mt-24">
-            <h2 id="faqTitle" class="text-2xl font-bold text-center mb-8">Frequently Asked Questions</h2>
-            <div class="flex flex-col gap-4 max-w-3xl mx-auto">
-                
-                <div class="glass-box rounded-2xl cursor-pointer" onclick="this.classList.toggle('faq-active')">
-                    <div class="p-5 flex justify-between items-center">
-                        <h4 class="font-semibold" id="faq1Q">Is this tool completely free?</h4>
-                        <i data-lucide="chevron-down" class="w-5 h-5 text-gray-400 transition-transform faq-icon"></i>
-                    </div>
-                    <div class="px-5 pb-5 text-gray-400 text-sm faq-answer" id="faq1A">
-                        Yes, SnapSave is 100% free to use with no download limits or hidden fees.
-                    </div>
-                </div>
-
-                <div class="glass-box rounded-2xl cursor-pointer" onclick="this.classList.toggle('faq-active')">
-                    <div class="p-5 flex justify-between items-center">
-                        <h4 class="font-semibold" id="faq2Q">Can I download Private Stories?</h4>
-                        <i data-lucide="chevron-down" class="w-5 h-5 text-gray-400 transition-transform faq-icon"></i>
-                    </div>
-                    <div class="px-5 pb-5 text-gray-400 text-sm faq-answer" id="faq2A">
-                        No. To respect user privacy, we only support public Spotlights and Public Stories.
-                    </div>
-                </div>
-
-                <div class="glass-box rounded-2xl cursor-pointer" onclick="this.classList.toggle('faq-active')">
-                    <div class="p-5 flex justify-between items-center">
-                        <h4 class="font-semibold" id="faq3Q">Where are videos saved?</h4>
-                        <i data-lucide="chevron-down" class="w-5 h-5 text-gray-400 transition-transform faq-icon"></i>
-                    </div>
-                    <div class="px-5 pb-5 text-gray-400 text-sm faq-answer" id="faq3A">
-                        Videos are saved directly to your browser's default "Downloads" folder or your phone's gallery.
-                    </div>
-                </div>
-
-            </div>
-        </section>
-    </div>
-
-    <!-- Scripts -->
     <script>
         lucide.createIcons();
 
         const translations = {
             en: {
-                navF: 'Features', navH: 'How to Use', navQ: 'FAQ',
                 title: 'Download <span class="snap-yellow">Snapchat</span> Media',
                 sub: 'Download Spotlight, Stories, and Reels directly to your device.',
                 placeholder: 'Paste Snapchat link here...',
@@ -314,23 +183,10 @@
                 loading: 'Fetching media... Please wait.',
                 ready: 'Ready to download',
                 dlV: 'Download MP4 (Video)', dlA: 'Download MP3 (Audio)',
-                featMain: 'Premium Features',
-                f1T: 'Lightning Fast', f1D: 'Serverless architecture fetches your media instantly.',
-                f2T: 'Direct Download', f2D: 'Files save directly to your gallery without opening spam tabs.',
-                f3T: 'All Formats', f3D: 'Supports Spotlight, Stories, Map Videos, and Audio extraction.',
-                stepsT: 'How to use?',
-                s1T: 'Copy Link', s1D: 'Find the Snapchat video and copy its sharing link.',
-                s2T: 'Paste URL', s2D: 'Click the Paste button and hit Extract.',
-                s3T: 'Save', s3D: 'Click Download to save directly to your device.',
-                faqT: 'Frequently Asked Questions',
-                q1: 'Is this tool completely free?', a1: 'Yes, SnapSave is 100% free to use with no download limits.',
-                q2: 'Can I download Private Stories?', a2: 'No. To respect user privacy, we only support public Spotlights.',
-                q3: 'Where are videos saved?', a3: 'Videos are saved directly to your default Downloads folder.',
                 errEmpty: 'Please enter a valid Snapchat link!',
                 errExtract: 'Error extracting. Make sure the link is public.'
             },
             fr: {
-                navF: 'Fonctionnalités', navH: 'Comment utiliser', navQ: 'FAQ',
                 title: 'Télécharger Vidéos <span class="snap-yellow">Snapchat</span>',
                 sub: 'Téléchargez les Spotlight et Stories directement sur votre appareil.',
                 placeholder: 'Collez le lien Snapchat...',
@@ -338,18 +194,6 @@
                 loading: 'Récupération du média...',
                 ready: 'Prêt à télécharger',
                 dlV: 'Télécharger MP4 (Vidéo)', dlA: 'Télécharger MP3 (Audio)',
-                featMain: 'Fonctionnalités Premium',
-                f1T: 'Ultra Rapide', f1D: 'L\'architecture Serverless récupère vos vidéos instantanément.',
-                f2T: 'Téléchargement Direct', f2D: 'Les fichiers sont enregistrés directement sans ouvrir d\'autres pages.',
-                f3T: 'Tous les formats', f3D: 'Supporte les Spotlight, Stories, et l\'extraction Audio.',
-                stepsT: 'Comment utiliser ?',
-                s1T: 'Copier le lien', s1D: 'Trouvez la vidéo Snapchat et copiez son lien.',
-                s2T: 'Coller l\'URL', s2D: 'Cliquez sur Coller puis sur Extraire.',
-                s3T: 'Sauvegarder', s3D: 'Cliquez sur Télécharger pour l\'enregistrer directement.',
-                faqT: 'Questions Fréquentes',
-                q1: 'Est-ce totalement gratuit ?', a1: 'Oui, l\'outil est 100% gratuit sans limites.',
-                q2: 'Puis-je télécharger des Stories privées ?', a2: 'Non, nous ne supportons que les vidéos publiques.',
-                q3: 'Où sont enregistrées les vidéos ?', a3: 'Dans le dossier Téléchargements de votre appareil.',
                 errEmpty: 'Veuillez entrer un lien valide !',
                 errExtract: 'Erreur. Assurez-vous que le lien est public.'
             }
@@ -361,21 +205,9 @@
             currentLang = lang;
             const t = translations[lang];
             
-            // Buttons style
-            document.getElementById('btn-lang-en').className = lang === 'en' 
-                ? 'px-3 py-1.5 rounded-lg bg-gray-700 text-sm flex items-center gap-2 transition-all text-white' 
-                : 'px-3 py-1.5 rounded-lg hover:bg-gray-800 text-sm flex items-center gap-2 transition-all text-gray-400';
-            
-            document.getElementById('btn-lang-fr').className = lang === 'fr' 
-                ? 'px-3 py-1.5 rounded-lg bg-gray-700 text-sm flex items-center gap-2 transition-all text-white' 
-                : 'px-3 py-1.5 rounded-lg hover:bg-gray-800 text-sm flex items-center gap-2 transition-all text-gray-400';
+            document.getElementById('btn-lang-en').className = lang === 'en' ? 'px-3 py-1.5 rounded-lg bg-gray-700 text-sm flex items-center gap-2 text-white' : 'px-3 py-1.5 rounded-lg hover:bg-gray-800 text-sm flex items-center gap-2 text-gray-400';
+            document.getElementById('btn-lang-fr').className = lang === 'fr' ? 'px-3 py-1.5 rounded-lg bg-gray-700 text-sm flex items-center gap-2 text-white' : 'px-3 py-1.5 rounded-lg hover:bg-gray-800 text-sm flex items-center gap-2 text-gray-400';
 
-            // Nav links
-            document.getElementById('navFeatures').innerText = t.navF;
-            document.getElementById('navHowTo').innerText = t.navH;
-            document.getElementById('navFaq').innerText = t.navQ;
-
-            // Content
             document.getElementById('heroTitle').innerHTML = t.title;
             document.getElementById('heroSub').innerText = t.sub;
             document.getElementById('snapUrlInput').placeholder = t.placeholder;
@@ -385,21 +217,6 @@
             document.getElementById('readyText').innerText = t.ready;
             document.getElementById('dlVideoText').innerText = t.dlV;
             document.getElementById('dlAudioText').innerText = t.dlA;
-            
-            document.getElementById('featMainTitle').innerText = t.featMain;
-            document.getElementById('feat1Title').innerText = t.f1T; document.getElementById('feat1Desc').innerText = t.f1D;
-            document.getElementById('feat2Title').innerText = t.f2T; document.getElementById('feat2Desc').innerText = t.f2D;
-            document.getElementById('feat3Title').innerText = t.f3T; document.getElementById('feat3Desc').innerText = t.f3D;
-
-            document.getElementById('stepsTitle').innerText = t.stepsT;
-            document.getElementById('step1Title').innerText = t.s1T; document.getElementById('step1Desc').innerText = t.s1D;
-            document.getElementById('step2Title').innerText = t.s2T; document.getElementById('step2Desc').innerText = t.s2D;
-            document.getElementById('step3Title').innerText = t.s3T; document.getElementById('step3Desc').innerText = t.s3D;
-
-            document.getElementById('faqTitle').innerText = t.faqT;
-            document.getElementById('faq1Q').innerText = t.q1; document.getElementById('faq1A').innerText = t.a1;
-            document.getElementById('faq2Q').innerText = t.q2; document.getElementById('faq2A').innerText = t.a2;
-            document.getElementById('faq3Q').innerText = t.q3; document.getElementById('faq3A').innerText = t.a3;
         };
 
         window.pasteFromClipboard = async function() {
@@ -407,7 +224,7 @@
                 const text = await navigator.clipboard.readText();
                 document.getElementById('snapUrlInput').value = text;
             } catch (err) {
-                alert("Please allow clipboard permissions in your browser.");
+                alert("Please allow clipboard permissions.");
             }
         };
 
@@ -417,6 +234,9 @@
             const resultCard = document.getElementById("resultCard");
             const btn = document.getElementById("downloadBtn");
             const t = translations[currentLang];
+            const videoThumb = document.getElementById("videoThumb");
+            const imageThumb = document.getElementById("imageThumb");
+            const thumbnailIcon = document.getElementById("thumbnailIcon");
 
             if (!urlInput) {
                 alert(t.errEmpty);
@@ -426,8 +246,10 @@
             resultCard.classList.add("hidden");
             loadingIndicator.classList.remove("hidden");
             loadingIndicator.classList.add("flex");
-            btn.disabled = true;
-            btn.classList.add("opacity-50");
+            btn.disabled = true; btn.classList.add("opacity-50");
+            
+            videoThumb.pause();
+            videoThumb.removeAttribute('src');
 
             try {
                 const response = await fetch('/api/extract', {
@@ -444,14 +266,20 @@
 
                 document.getElementById("videoTitle").innerText = data.title || "Snapchat Video";
                 
-                if(data.thumbnail) {
-                    document.getElementById("videoThumb").src = data.thumbnail;
-                    document.getElementById("videoThumb").classList.remove("hidden");
-                    document.getElementById("thumbnailIcon").classList.add("hidden");
+                if (data.thumbnail && data.thumbnail !== "") {
+                    imageThumb.src = data.thumbnail;
+                    imageThumb.classList.remove("hidden");
+                    videoThumb.classList.add("hidden");
+                    thumbnailIcon.classList.add("hidden");
+                } else {
+                    videoThumb.src = data.download_url;
+                    videoThumb.classList.remove("hidden");
+                    imageThumb.classList.add("hidden");
+                    thumbnailIcon.classList.add("hidden");
+                    videoThumb.play().catch(e => console.log("Auto-play blocked"));
                 }
 
                 document.getElementById("videoUrlData").value = data.download_url;
-
                 resultCard.classList.remove("hidden");
                 resultCard.classList.add("flex");
 
@@ -461,39 +289,18 @@
             } finally {
                 loadingIndicator.classList.add("hidden");
                 loadingIndicator.classList.remove("flex");
-                btn.disabled = false;
-                btn.classList.remove("opacity-50");
+                btn.disabled = false; btn.classList.remove("opacity-50");
             }
         };
 
-        window.forceDownload = async function(url, type) {
-            const fileName = `SnapSave_${Date.now()}.${type}`;
-            try {
-                document.body.style.cursor = 'wait';
-                const res = await fetch(url);
-                const blob = await res.blob();
-                const blobUrl = window.URL.createObjectURL(blob);
-                
-                const a = document.createElement('a');
-                a.style.display = 'none';
-                a.href = blobUrl;
-                a.download = fileName;
-                document.body.appendChild(a);
-                a.click();
-                
-                window.URL.revokeObjectURL(blobUrl);
-                document.body.removeChild(a);
-            } catch(e) {
-                const a = document.createElement('a');
-                a.href = url;
-                a.download = fileName;
-                a.target = "_blank";
-                document.body.appendChild(a);
-                a.click();
-                document.body.removeChild(a);
-            } finally {
-                document.body.style.cursor = 'default';
-            }
+        window.forceDownload = function(url) {
+            const a = document.createElement('a');
+            a.href = url;
+            a.target = "_blank";
+            a.download = `SnapGet_${Date.now()}.mp4`;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
         };
     </script>
 </body>
