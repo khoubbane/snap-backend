@@ -121,3 +121,123 @@
                 <i data-lucide="download-cloud" class="w-10 h-10 snap-yellow mx-auto mb-4 relative z-10"></i>
                 <h3 class="font-bold text-lg mb-2 relative z-10" id="step3Title">Download Format</h3>
                 <p class="text-gray-400 text-sm relative z-10" id="step3Desc">Choose your preferred format (Full HD or MP3) and download instantly.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Init Icons -->
+    <script>
+        lucide.createIcons();
+    </script>
+
+    <!-- Core App Logic -->
+    <script>
+        const translations = {
+            en: {
+                title: 'Download <span class="snap-yellow">Snapchat</span> Media',
+                sub: 'Download Spotlight, Stories, and Reels in Full HD or MP3 Audio.',
+                placeholder: 'Paste Snapchat link here...',
+                btn: 'Extract',
+                loading: 'Fetching media... Please wait.',
+                stepsT: 'How to download?',
+                s1T: 'Copy Link', s1D: 'Open Snapchat, find the video or spotlight, and copy its link.',
+                s2T: 'Paste URL', s2D: 'Paste the copied link into the input box above and click Extract.',
+                s3T: 'Download Format', s3D: 'Choose your preferred format (Full HD or MP3) and download instantly.',
+                errEmpty: 'Please enter a valid Snapchat link!',
+                errExtract: 'Error extracting video. Make sure the link is public.'
+            },
+            fr: {
+                title: 'Télécharger Vidéos <span class="snap-yellow">Snapchat</span>',
+                sub: 'Téléchargez les Spotlight, Stories et Reels en Full HD ou Audio MP3.',
+                placeholder: 'Collez le lien Snapchat ici...',
+                btn: 'Extraire',
+                loading: 'Récupération du média...',
+                stepsT: 'Comment télécharger ?',
+                s1T: 'Copier le lien', s1D: 'Ouvrez Snapchat, trouvez la vidéo et copiez son lien.',
+                s2T: 'Coller l\'URL', s2D: 'Collez le lien dans la barre ci-dessus et cliquez sur Extraire.',
+                s3T: 'Choisir le Format', s3D: 'Choisissez votre format (Full HD ou MP3) et téléchargez.',
+                errEmpty: 'Veuillez entrer un lien Snapchat valide !',
+                errExtract: 'Erreur d\'extraction. Assurez-vous que le lien est public.'
+            }
+        };
+
+        let currentLang = 'en';
+
+        // Expose functions globally to ensure the HTML buttons can always access them
+        window.changeLanguage = function(lang) {
+            currentLang = lang;
+            const t = translations[lang];
+            
+            document.getElementById('heroTitle').innerHTML = t.title;
+            document.getElementById('heroSub').innerText = t.sub;
+            document.getElementById('snapUrlInput').placeholder = t.placeholder;
+            document.getElementById('btnText').innerText = t.btn;
+            document.getElementById('loadingText').innerText = t.loading;
+            
+            document.getElementById('stepsTitle').innerText = t.stepsT;
+            document.getElementById('step1Title').innerText = t.s1T;
+            document.getElementById('step1Desc').innerText = t.s1D;
+            document.getElementById('step2Title').innerText = t.s2T;
+            document.getElementById('step2Desc').innerText = t.s2D;
+            document.getElementById('step3Title').innerText = t.s3T;
+            document.getElementById('step3Desc').innerText = t.s3D;
+        };
+
+        window.downloadSnapVideo = async function() {
+            const urlInput = document.getElementById("snapUrlInput").value.trim();
+            const loadingIndicator = document.getElementById("loadingIndicator");
+            const resultCard = document.getElementById("resultCard");
+            const btn = document.getElementById("downloadBtn");
+            const t = translations[currentLang];
+
+            if (!urlInput) {
+                alert(t.errEmpty);
+                return;
+            }
+
+            resultCard.classList.add("hidden");
+            loadingIndicator.classList.remove("hidden");
+            loadingIndicator.classList.add("flex");
+            btn.disabled = true;
+            btn.classList.add("opacity-50");
+
+            try {
+                const response = await fetch('/api/extract', {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ url: urlInput }),
+                });
+
+                const data = await response.json();
+
+                if (!response.ok || data.error) {
+                    throw new Error(data.error || t.errExtract);
+                }
+
+                document.getElementById("videoTitle").innerText = data.title || "Snapchat Video";
+                
+                if(data.thumbnail) {
+                    document.getElementById("videoThumb").src = data.thumbnail;
+                    document.getElementById("videoThumb").classList.remove("hidden");
+                    document.getElementById("thumbnailIcon").classList.add("hidden");
+                }
+
+                document.getElementById("downloadHdBtn").href = data.download_url;
+                document.getElementById("downloadMp3Btn").href = data.download_url;
+
+                resultCard.classList.remove("hidden");
+                resultCard.classList.add("flex");
+
+            } catch (error) {
+                console.error(error);
+                alert("Error: " + error.message);
+            } finally {
+                loadingIndicator.classList.add("hidden");
+                loadingIndicator.classList.remove("flex");
+                btn.disabled = false;
+                btn.classList.remove("opacity-50");
+            }
+        };
+    </script>
+</body>
+</html>
