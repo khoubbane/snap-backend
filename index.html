@@ -291,12 +291,23 @@
             document.getElementById('faq3Q').innerText = t.q3; document.getElementById('faq3A').innerText = t.a3;
         };
 
-        window.pasteFromClipboard = async function() {
+       window.pasteFromClipboard = async function() {
+            const inputField = document.getElementById('snapUrlInput');
             try {
+                // Kay-7awel y-jib l-lien mn l-clipboard (Khdama mzyan f PC o b3d les Android)
                 const text = await navigator.clipboard.readText();
-                document.getElementById('snapUrlInput').value = text;
+                if (text) {
+                    inputField.value = text;
+                }
             } catch (err) {
-                alert("Please allow clipboard permissions.");
+                // Ila l-téléphone bloka l-paste (bhal iPhone), kay-focussi l-khana bach t-coller b yeddik
+                inputField.focus();
+                
+                const t = currentLang === 'fr' 
+                    ? "Votre navigateur bloque le collage automatique. Maintenez enfoncé sur la barre pour coller manuellement." 
+                    : "Your browser blocked auto-paste. Please long-press the search bar to paste manually.";
+                
+                alert(t);
             }
         };
 
