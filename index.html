@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
-    <meta name="google-site-verification" content="WHhCkZOG5X3chJ9qtK2leVXBX2cC66aZ5ME3eSGA7og" />
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Snapchat Video Downloader - Save Spotlight & Stories | SnapGet</title>
@@ -9,8 +8,7 @@
     <meta name="description" content="Download Snapchat Spotlight, Stories, and Reels in Full HD (MP4) or Audio (MP3) for free. No watermark, fast, and secure Snapchat media saver.">
     <meta name="keywords" content="snapchat downloader, download snapchat video, snapchat story saver, download snapchat spotlight, telecharger video snapchat, telecharger story snapchat, snapchat mp4 download, snapchat to mp3, snap get, snapget online, snapchat video downloader online">
     
-    <!-- HADI HIYA L-ICON LI GHADI T-7IYED L-KORA L-ARDIYA (Earth) -->
-    <!-- Daba dayr lik fiha emoji d Snap sfer temporary, mnin t-siyi t-9der t-beddel 'href' b lien d l-logo dyalk -->
+    <!-- Icon dyal l-Site (Ghost Sfer) -->
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>👻</text></svg>">
     
     <link rel="canonical" href="https://snapget.online/">
@@ -164,6 +162,40 @@
                 </div>
             </div>
         </section>
+
+        <!-- FAQ SECTION RAJ3AT HNA -->
+        <section id="faq" class="mb-20 scroll-mt-24">
+            <h2 id="faqTitle" class="text-2xl font-bold text-center mb-8">Frequently Asked Questions</h2>
+            <div class="flex flex-col gap-4 max-w-3xl mx-auto">
+                <div class="glass-box rounded-2xl cursor-pointer" onclick="this.classList.toggle('faq-active')">
+                    <div class="p-5 flex justify-between items-center">
+                        <h4 class="font-semibold" id="faq1Q">Is this tool completely free?</h4>
+                        <i data-lucide="chevron-down" class="w-5 h-5 text-gray-400 transition-transform faq-icon"></i>
+                    </div>
+                    <div class="px-5 pb-5 text-gray-400 text-sm faq-answer" id="faq1A">
+                        Yes, SnapGet is 100% free to use with no download limits or hidden fees.
+                    </div>
+                </div>
+                <div class="glass-box rounded-2xl cursor-pointer" onclick="this.classList.toggle('faq-active')">
+                    <div class="p-5 flex justify-between items-center">
+                        <h4 class="font-semibold" id="faq2Q">Can I download Private Stories?</h4>
+                        <i data-lucide="chevron-down" class="w-5 h-5 text-gray-400 transition-transform faq-icon"></i>
+                    </div>
+                    <div class="px-5 pb-5 text-gray-400 text-sm faq-answer" id="faq2A">
+                        No. To respect user privacy, we only support public Spotlights and Public Stories.
+                    </div>
+                </div>
+                <div class="glass-box rounded-2xl cursor-pointer" onclick="this.classList.toggle('faq-active')">
+                    <div class="p-5 flex justify-between items-center">
+                        <h4 class="font-semibold" id="faq3Q">Where are videos saved?</h4>
+                        <i data-lucide="chevron-down" class="w-5 h-5 text-gray-400 transition-transform faq-icon"></i>
+                    </div>
+                    <div class="px-5 pb-5 text-gray-400 text-sm faq-answer" id="faq3A">
+                        Videos are saved directly to your browser's default "Downloads" folder or your phone's gallery.
+                    </div>
+                </div>
+            </div>
+        </section>
     </div>
 
     <script>
@@ -187,6 +219,10 @@
                 s1T: 'Copy Link', s1D: 'Find the Snapchat video and copy its sharing link.',
                 s2T: 'Paste URL', s2D: 'Click the Paste button and hit Extract.',
                 s3T: 'Save', s3D: 'Click Download to save directly to your device.',
+                faqT: 'Frequently Asked Questions',
+                q1: 'Is this tool completely free?', a1: 'Yes, SnapGet is 100% free to use with no download limits.',
+                q2: 'Can I download Private Stories?', a2: 'No. To respect user privacy, we only support public Spotlights.',
+                q3: 'Where are videos saved?', a3: 'Videos are saved directly to your default Downloads folder.',
                 errEmpty: 'Please enter a valid Snapchat link!',
                 errExtract: 'Error extracting. Make sure the link is public.'
             },
@@ -207,6 +243,10 @@
                 s1T: 'Copier le lien', s1D: 'Trouvez la vidéo Snapchat et copiez son lien.',
                 s2T: 'Coller l\'URL', s2D: 'Cliquez sur Coller puis sur Extraire.',
                 s3T: 'Sauvegarder', s3D: 'Cliquez sur Télécharger pour l\'enregistrer directement.',
+                faqT: 'Questions Fréquentes',
+                q1: 'Est-ce totalement gratuit ?', a1: 'Oui, l\'outil est 100% gratuit sans limites.',
+                q2: 'Puis-je télécharger des Stories privées ?', a2: 'Non, nous ne supportons que les vidéos publiques.',
+                q3: 'Où sont enregistrées les vidéos ?', a3: 'Dans le dossier Téléchargements de votre appareil.',
                 errEmpty: 'Veuillez entrer un lien valide !',
                 errExtract: 'Erreur. Assurez-vous que le lien est public.'
             }
@@ -223,6 +263,7 @@
 
             document.getElementById('navFeatures').innerText = t.navF;
             document.getElementById('navHowTo').innerText = t.navH;
+            document.getElementById('navFaq').innerText = t.navQ;
 
             document.getElementById('heroTitle').innerHTML = t.title;
             document.getElementById('heroSub').innerText = t.sub;
@@ -243,6 +284,11 @@
             document.getElementById('step1Title').innerText = t.s1T; document.getElementById('step1Desc').innerText = t.s1D;
             document.getElementById('step2Title').innerText = t.s2T; document.getElementById('step2Desc').innerText = t.s2D;
             document.getElementById('step3Title').innerText = t.s3T; document.getElementById('step3Desc').innerText = t.s3D;
+
+            document.getElementById('faqTitle').innerText = t.faqT;
+            document.getElementById('faq1Q').innerText = t.q1; document.getElementById('faq1A').innerText = t.a1;
+            document.getElementById('faq2Q').innerText = t.q2; document.getElementById('faq2A').innerText = t.a2;
+            document.getElementById('faq3Q').innerText = t.q3; document.getElementById('faq3A').innerText = t.a3;
         };
 
         window.pasteFromClipboard = async function() {
@@ -319,14 +365,12 @@
             }
         };
 
-        // L-Khedma Jdida dyal T-téléchargement b L-Compteur % 
         window.forceDownload = async function(url, btnElement, type) {
             const originalContent = btnElement.innerHTML; 
             
             try {
                 btnElement.style.pointerEvents = 'none'; 
                 
-                // N-jibo l-fichier b tariqa kat-9ra l-data chwiya b chwiya bach n-hssbo l-miya (%)
                 const res = await fetch(url);
                 const contentLength = res.headers.get('content-length');
                 const total = contentLength ? parseInt(contentLength, 10) : 0;
@@ -351,7 +395,6 @@
                     lucide.createIcons();
                 }
                 
-                // Mnin ysali 100%, l-fichier kay-siftih l pc/téléphone instantané!
                 btnElement.innerHTML = `<i data-lucide="check" class="w-5 h-5"></i> <span>Done! Saving...</span>`;
                 lucide.createIcons();
                 
@@ -371,7 +414,6 @@
                 }, 1000);
 
             } catch(e) {
-                // Ila w9e3 chi mochkil ola l-navigateur mne3 l-fetch, kay-dir l-khota dyal tawari2 (Fallback)
                 console.error("Fallback download");
                 const a = document.createElement('a');
                 a.href = url;
